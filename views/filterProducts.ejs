@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home Page</a>
+        <a href="/users">Users</a>
+        <a href="/products">Products</a>
+    </nav>
+    <h1>Product With ID Greater Than 102</h1>
+    <table border="1">
+      <tr>
+        <th>PID</th>
+        <th>Name</th>
+      </tr>
+      <% products.forEach(product => { %>
+        <% if (product.PID > 102) { %>
+          <tr>
+            <td><%= product.PID %></td>
+            <td><%= product.pName %></td>
+          </tr>
+        <% } %>
+      <% }); %>
+      <% if (products.length === 0) { %>
+        <tr>
+          <td colspan="2">No products found with ID greater than 102.</td>
+        </tr>
+      <% } %>
+    </table>
+</body>
+</html>
